@@ -5,7 +5,7 @@ import re
 directory = os.getcwd()
 
 # Set the file types to modify
-file_types = [".cpp", ".h", ".hpp", ".py", ".java", ".txt", ".go", ".rs"]
+file_types = [".html", ".css", ".js", ".jsx", ".ts", ".tsx"]
 
 # Iterate over all files in the directory
 for root, _, files in os.walk(directory):
@@ -28,8 +28,8 @@ for root, _, files in os.walk(directory):
 		# Replace CRLF end-of-line sequences with LF
 		contents = contents.replace("\r\n", "\n")
 
-		# Convert indentation to tabs
-		contents = re.sub(r" {4}", "\t", contents)
+		# Convert indentation to spaces of size 2
+		contents = re.sub(r" {2}", "  ", contents)
 
 		# Remove all trailing spaces from each line
 		contents = [line.rstrip() for line in contents.split("\n")]

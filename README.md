@@ -12,3 +12,7 @@ I wish I have this when I was in my sophomore year, why sophomore? I can't even 
 
 ## renameFiles
 > **Brief:** Tbh, this things can be so powerful for me as a lazy weeb, I can rename all my anime files with this script, and I can also use this to rename all my homework files, so I don't have to do it manually.
+
+## createTxtFile
+> **Brief:** The script then gets the current working directory using os.getcwd() and calls the create_in_txt_files function on it. This will cause the function to be called on the current working directory and all of its subdirectories, creating an "in.txt" file in each subdirectory.
+

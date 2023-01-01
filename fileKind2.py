@@ -1,5 +1,4 @@
 import os
-import re
 
 # Set the target directory
 directory = os.getcwd()
@@ -15,7 +14,7 @@ for root, _, files in os.walk(directory):
 		if file_extension not in file_types:
 			continue
 
-		# print file name
+		# Print the file name
 		print(file)
 
 		# Build the full path to the file
@@ -28,12 +27,30 @@ for root, _, files in os.walk(directory):
 		# Replace CRLF end-of-line sequences with LF
 		contents = contents.replace("\r\n", "\n")
 
-		# Convert indentation to spaces of size 2
-		contents = re.sub(r" {2}", "  ", contents)
+		# Convert indentation to 2 spaces
+		indentation = 0
+		new_contents = []
+		for line in contents.split("\n"):
+			# Calculate the number of leading spaces
+			leading_spaces = 0
+			for char in line:
+				if char == " ":
+					leading_spaces += 1
+				else:
+					break
 
-		# Remove all trailing spaces from each line
-		contents = [line.rstrip() for line in contents.split("\n")]
-		contents = "\n".join(contents)
+			# Calculate the number of indentation levels
+			indentation_change = leading_spaces // 2 - indentation
+			indentation += indentation_change
+
+			# Strip leading and trailing spaces
+			line = line.strip()
+
+			# Add the modified line to the new contents
+			new_contents.append("  " * indentation + line)
+
+		# Join the modified lines into a single string
+		contents = "\n".join(new_contents)
 
 		# Write the modified contents back to the file
 		with open(file_path, "w") as f:

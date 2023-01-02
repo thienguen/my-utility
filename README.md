@@ -16,3 +16,5 @@ I wish I have this when I was in my sophomore year, why sophomore? I can't even 
 ## createTxtFile
 > **Brief:** The script then gets the current working directory using os.getcwd() and calls the create_in_txt_files function on it. This will cause the function to be called on the current working directory and all of its subdirectories, creating an "in.txt" file in each subdirectory.
 
+## passwordGenerator
+> **Brief:** This script will generate a random password for you, and you can also specify the length of the password, well...shit is more useless than I thought.
